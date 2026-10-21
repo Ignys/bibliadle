@@ -38,7 +38,9 @@ npm run preview
 3. Cada campo é comparado **independentemente** com a resposta. Mesmo errando o livro, capítulo e versículo ainda recebem feedback numérico.
 4. **Verde** = campo correto; **seta para cima** = livro posterior / capítulo ou versículo maior; **seta para baixo** = anterior / menor.
 5. Não há limite de tentativas. Ao acertar, o jogador pode compartilhar um resultado sem spoiler. Tentativas e estatísticas ficam salvas no navegador.
-6. O jogo muda à meia-noite em Brasília, inclusive quando a página permanece aberta.
+6. O jogo muda à meia-noite em Brasília, inclusive quando a página permanece aberta no desafio do dia.
+7. **Arquivo:** clique em **Ver todos os desafios** ou em **Arquivo** no menu. O calendário permite jogar cada dia desde 01/01/2026 até hoje, com indicadores de concluído/em andamento/não jogado. O botão **Anterior/Próximo** navega por dias consecutivos; não é possível acessar desafios futuros. Cada data tem seu progresso independente e os desafios previamente publicados não mudam.
+8. Compartilhar um desafio anterior inclui `?data=AAAA-MM-DD` no link para que outra pessoa abra a mesma edição. Os botões de avançar/voltar do navegador também funcionam.
 
 ## Dados bíblicos
 
