@@ -54,3 +54,97 @@
 .archive-today-button{margin-top:20px}
 .archive-current-note{margin:17px 0 0;color:#849d88;text-align:center;font-size:11px;line-height:1.5}
 @media(max-width:510px){.day-navigation{gap:6px;margin-top:17px}.day-nav-button{padding:7px 9px;font-size:10px;min-height:38px}.day-nav-calendar{padding:8px 10px;font-size:10px;min-height:38px}.archive-calendar{padding:11px 8px}.archive-day-grid{gap:4px}.archive-day{min-height:44px;font-size:11px}.archive-intro{font-size:11px}}
+/* ---- Refinamentos visuais ---- */
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes flip-in{from{opacity:0;transform:perspective(600px) rotateX(-70deg)}to{opacity:1;transform:none}}
+@keyframes glow{0%,100%{box-shadow:0 0 10px #e6ab6b66}50%{box-shadow:0 0 18px #f0c27fcc}}
+@keyframes shimmer{from{background-position:-200% 0}to{background-position:200% 0}}
+.app-shell::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero-section>*{animation:rise .6s cubic-bezier(.2,.7,.2,1) both}.hero-section>:nth-child(2){animation-delay:.08s}.hero-section>:nth-child(3){animation-delay:.16s}.hero-section>:nth-child(4){animation-delay:.24s}
+.hero-section h1 em{background:linear-gradient(100deg,#c99b5b,#f3d79f 45%,#c99b5b);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em}
+.live-dot{animation:glow 2.4s ease-in-out infinite}
+.hero-description{font-size:15px}.meta-pill{font-size:12px;border-radius:999px;padding:7px 14px}
+.verse-card{animation:rise .7s .3s cubic-bezier(.2,.7,.2,1) both;box-shadow:0 30px 80px -20px #000a,0 0 0 1px #ffffff05,inset 0 1px 0 #ffffff14;border-radius:20px}
+.verse-card::before{border-radius:14px}
+.verse-quote{text-wrap:balance}
+.loading-verse{background:linear-gradient(90deg,#ddc79e 0%,#fff3d6 50%,#ddc79e 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 2s linear infinite}
+.card-kicker,.card-edition,.verse-card-bottom span{font-size:11px}
+.game-layout{animation:rise .7s .42s cubic-bezier(.2,.7,.2,1) both}
+.guess-section,.how-panel{border-radius:16px;background:linear-gradient(180deg,#18231ded,#141c18ed);box-shadow:0 20px 50px -25px #000c,inset 0 1px 0 #ffffff0a}
+.section-header h2{font-size:18px}.section-header p,.field-label,.how-panel>p,.legend-row strong{font-size:12.5px}.legend-row small,.how-note,.form-tip{font-size:11.5px}
+.field-control{height:48px;border-radius:10px}.field-input{font-size:14px}
+.field-control:focus-within{box-shadow:0 0 0 3px #d4aa6d26}
+.book-menu{animation:rise .16s ease-out both;backdrop-filter:blur(10px)}.book-option{font-size:13px}
+.primary-button{padding:15px;font-size:14px;border-radius:10px;letter-spacing:.01em}
+.primary-button:hover:not(:disabled){box-shadow:inset 0 1px 0 #fff4cc66,0 10px 28px -6px #d4aa6d66}
+.legend-square{border-radius:8px}
+.guess-row{animation:rise .35s ease-out both}
+.feedback-cell{border-radius:10px;animation:flip-in .5s cubic-bezier(.2,.7,.2,1) both;box-shadow:inset 0 1px 0 #ffffff1f,0 6px 16px -8px #000c}
+.guess-row .feedback-cell:nth-child(3){animation-delay:.12s}.guess-row .feedback-cell:nth-child(4){animation-delay:.24s}
+.feedback-value{font-size:14px}.history-table-head{font-size:11px}.guess-count{font-size:11px}
+.history-empty{border-radius:14px}.history-empty p{font-size:12.5px}
+.winner-panel{animation:rise .6s ease-out both}.winner-icon{box-shadow:0 0 30px #f4cb8344;animation:glow 3s ease-in-out infinite}
+.modal-backdrop{animation:rise .2s ease-out both}.modal-panel{border-radius:18px;background:linear-gradient(180deg,#1c2a21,#16211a)}
+.modal-intro,.intro-rule p,.modal-tip{font-size:12.5px}.stat-box span{font-size:11px}
+.stat-box{transition:transform .2s,border-color .2s}.stat-box:hover{transform:translateY(-2px);border-color:#b99c64}
+.site-footer{font-size:12px}.daily-closer span{font-size:10px}
+@media(max-width:510px){.hero-description{font-size:13.5px}.meta-pill{font-size:11px}.card-edition{font-size:9px}.feedback-value{font-size:12px}.history-table-head{font-size:9px}.daily-closer span{font-size:8px}}
+/* Versículo em destaque (sem hero) */
+.main-content>.verse-card{margin-top:56px}
+.verse-text-container{min-height:220px;padding:44px 30px 36px}
+.verse-quote{font-size:clamp(26px,4vw,42px)}
+@media(max-width:510px){.main-content>.verse-card{margin-top:28px}.verse-text-container{min-height:170px;padding:30px 8px}.verse-quote{font-size:25px}}
+/* Versículo sem card */
+.verse-plain{margin:72px auto 48px;max-width:860px}
+.verse-plain .verse-text-container{min-height:200px;padding:0 8px}
+@media(max-width:510px){.verse-plain{margin:40px auto 28px}.verse-plain .verse-text-container{min-height:150px}}
+.game-layout{grid-template-columns:1fr;max-width:720px;margin-left:auto;margin-right:auto}
+.verse-translation{margin:22px 0 0;text-align:center;color:#8d9c90;font-size:12px;letter-spacing:.04em}
+.guess-form{margin-top:0}.guess-inputs{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr) minmax(0,1fr) auto;align-items:end}.primary-button.submit-icon{width:45px;height:45px;padding:0;margin:0}
+@media(max-width:510px){.guess-inputs{grid-template-columns:1fr 1fr auto}.primary-button.submit-icon{width:43px;height:43px}}
+.history-section{margin-top:14px}.history-section:has(.guess-history:empty){display:none}
+
+.game-layout{position:relative;z-index:10}
+/* Tentativas: fichas de referência */
+.guess-row{perspective:600px;margin-bottom:8px;animation:none}
+.guess-number{font-family:'DM Serif Display',Georgia,serif;font-size:22px;color:#6f8273;justify-content:flex-end;padding-right:4px}
+.guess-history .guess-row:first-child .guess-number{color:#dab477}
+.feedback-cell{animation:none;flex-direction:column;align-items:flex-start;justify-content:center;gap:5px;min-height:62px;padding:10px 13px;border-radius:9px;border:1px solid #33433a;background:#111a15;box-shadow:none;transform-origin:top center}
+.feedback-value{font-size:15px;font-weight:700;color:#eef0e6;line-height:1.15}
+.feedback-hint{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;color:#8d9c90}
+.feedback-wrong{border-left:3px solid #a85d52}
+.feedback-wrong .feedback-hint{color:#d49a8f}
+.feedback-near{border-left:3px solid #c99b52}
+.feedback-near .feedback-hint{color:#e1bd80}
+.feedback-correct{background:#2c6a4a;border-color:#4f9b71;border-left:3px solid #9fd9b4}
+.feedback-correct .feedback-value{color:#fff}
+.feedback-correct .feedback-hint{color:#c9f0d6}
+@media(max-width:510px){.guess-number{font-size:17px;padding-right:2px}.feedback-cell{padding:8px 8px;min-height:56px}.feedback-value{font-size:12px}.feedback-hint{font-size:9.5px}}
+@media(prefers-reduced-motion:reduce){.feedback-cell{transform:none!important}}
+
+/* Seletor de tradução */
+.verse-translation{display:flex;align-items:center;justify-content:center;gap:8px}.verse-translation select{background:#101813;color:#d8d2bf;border:1px solid #3d4e41;border-radius:7px;padding:5px 8px;font:inherit;font-size:12px;cursor:pointer}.verse-translation select:focus-visible{outline:2px solid #b99c64;outline-offset:2px}
+/* Cor só no texto */
+.feedback-wrong,.feedback-near,.feedback-correct{background:#111a15;border:1px solid #33433a}
+.feedback-wrong .feedback-value{color:#e08d80}
+.feedback-near .feedback-value{color:#e6be78}
+.feedback-correct .feedback-value{color:#8fdcab}
+.feedback-correct .feedback-hint{color:#8fdcab}
+.history-table-head,.guess-row{grid-template-columns:47px minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr)}
+@media(max-width:510px){.history-table-head,.guess-row{grid-template-columns:29px minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr)}}
+.feedback-value{font-size:18px}.feedback-hint{font-size:13px}
+@media(max-width:510px){.feedback-value{font-size:14px}.feedback-hint{font-size:11px}}
+/* Estilo citação: faixa única */
+.history-table-head,.guess-row{column-gap:0}
+.history-table-head span:first-child,.guess-number{margin-right:12px}
+.guess-row{margin-bottom:10px;border-radius:12px}
+.guess-row .feedback-cell{border:0;border-radius:0;background:linear-gradient(180deg,#16211b,#111a15);border-top:1px solid #2f3e35;border-bottom:1px solid #26332b;padding:12px 16px;min-height:68px;gap:6px}
+.guess-row .feedback-cell+.feedback-cell{border-left:1px solid #2a382f}
+.guess-row .feedback-cell:nth-child(2){border-left:1px solid #2f3e35;border-radius:12px 0 0 12px}
+.guess-row .feedback-cell:last-child{border-right:1px solid #2f3e35;border-radius:0 12px 12px 0}
+.feedback-value{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:21px;letter-spacing:-.01em}
+.feedback-hint{font-size:12px;font-weight:600;opacity:.85}
+.feedback-correct .feedback-value{text-shadow:0 0 18px #8fdcab55}
+.guess-number{font-size:15px;font-family:'DM Sans',sans-serif;font-weight:700;width:30px;height:30px;align-self:center;justify-content:center;padding:0;border-radius:50%;border:1px solid #3a4a3f;color:#7e9282}
+.guess-history .guess-row:first-child .guess-number{border-color:#a8875155;background:#dab4771a}
+@media(max-width:510px){.history-table-head span:first-child,.guess-number{margin-right:6px}.guess-number{width:24px;height:24px;font-size:11px}.guess-row .feedback-cell{padding:9px 9px;min-height:58px}.feedback-value{font-size:16px}.feedback-hint{font-size:10.5px}}

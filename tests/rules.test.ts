@@ -4,9 +4,9 @@ import { DAILY_VERSES } from '../src/data/dailyVerses';
 import { compareGuess, getBrazilDay, getDailyReference, isWinningGuess } from '../src/lib/game';
 
 describe('dados e regras bíblicas',()=>{
-  it('possui os 66 livros e 189 referências válidas',()=>{
+  it('possui os 66 livros e 411 referências válidas',()=>{
     expect(BOOKS).toHaveLength(66);
-    expect(DAILY_VERSES).toHaveLength(189);
+    expect(DAILY_VERSES).toHaveLength(411);
     for(const verse of DAILY_VERSES){
       const book=BOOKS.find(book=>book.id===verse.bookId);
       expect(book).toBeDefined();
@@ -15,8 +15,8 @@ describe('dados e regras bíblicas',()=>{
       expect(verse.verse).toBeGreaterThan(0);
     }
   });
-  it('não repete uma referência dentro do ciclo de 189 dias',()=>{
-    const start=Date.parse('2026-01-01T00:00:00Z'),set=new Set<string>();
+  it('não repete uma referência dentro do ciclo de 411 dias',()=>{
+    const start=Date.parse('2025-01-01T00:00:00Z'),set=new Set<string>();
     for(let i=0;i<DAILY_VERSES.length;i++){
       const date=new Date(start+i*86400000).toISOString().slice(0,10);
       const ref=getDailyReference(date);

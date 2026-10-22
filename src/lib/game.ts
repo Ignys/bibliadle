@@ -2,6 +2,7 @@ import { BOOK_BY_ID, bookOrder } from '../data/books';
 import { DAILY_VERSES, type BibleReference } from '../data/dailyVerses';
 export interface Guess extends BibleReference { id: string }
 export type Direction = 'correct' | 'higher' | 'lower';
+export type Match = 'correct' | 'wrong';
 export interface Feedback { book: Direction; chapter: Direction; verse: Direction }
 export interface GameRecord { date: string; guesses: Guess[]; completed: boolean }
 export type Records = Record<string, GameRecord>;
@@ -12,9 +13,9 @@ export function getBrazilDay(now = new Date()) {
   return `${find('year')}-${find('month')}-${find('day')}`;
 }
 export const dayNumber = (day: string) => Math.floor(Date.parse(`${day}T00:00:00Z`)/86400000);
-/** 71 e 189 são coprimos: os desafios não se repetem dentro de cada ciclo. */
+/** 71 é coprimo com o total de passagens (411): nenhum desafio se repete dentro de um ciclo, que começa em 2025-01-01. */
 export function getDailyReference(day: string): BibleReference {
-  const n=DAILY_VERSES.length, elapsed=dayNumber(day)-dayNumber('2026-01-01');
+  const n=DAILY_VERSES.length, elapsed=dayNumber(day)-dayNumber('2025-01-01');
   const cycle=Math.floor(elapsed/n), pos=((elapsed%n)+n)%n;
   return DAILY_VERSES[((pos*71+cycle*29)%n+n)%n];
 }

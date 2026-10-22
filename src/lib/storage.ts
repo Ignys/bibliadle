@@ -1,4 +1,5 @@
 import type { Records } from './game';
+import { DEFAULT_TRANSLATION, isTranslationId, type TranslationId } from './bibleApi';
 const KEY='bibliadle:history:v1';
 export function loadRecords():Records {
   try {
@@ -16,3 +17,6 @@ export function loadRecords():Records {
   } catch{return {};}
 }
 export function saveRecords(records:Records){try{localStorage.setItem(KEY,JSON.stringify(records));}catch{/* armazenamento indisponível */}}
+const TRANSLATION_KEY='bibliadle:translation';
+export function loadTranslation():TranslationId{try{const value=localStorage.getItem(TRANSLATION_KEY);return isTranslationId(value)?value:DEFAULT_TRANSLATION;}catch{return DEFAULT_TRANSLATION;}}
+export function saveTranslation(id:TranslationId){try{localStorage.setItem(TRANSLATION_KEY,id);}catch{/* armazenamento indisponível */}}
