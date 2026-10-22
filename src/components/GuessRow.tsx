@@ -9,7 +9,7 @@ function Cell({value,direction,label,isBook=false,delay=0}:{value:string|number;
   const Icon=correct?Check:direction==='higher'?ArrowUp:direction==='lower'?ArrowDown:X;
   const short=correct?'Certo':direction==='higher'?(isBook?'Mais adiante':'Maior'):direction==='lower'?(isBook?'Mais atrás':'Menor'):'Errado';
   const hint=correct?'Correto':direction==='higher'?'A resposta é maior ou posterior':direction==='lower'?'A resposta é menor ou anterior':'Incorreto';
-  const state=correct?'correct':direction==='higher'||direction==='lower'?'near':'wrong';
+  const state=correct?'correct':'wrong';
   return <motion.div className={`feedback-cell feedback-${state}`} initial={{opacity:0,rotateX:-70}} animate={{opacity:1,rotateX:0}} transition={{delay,duration:.45,ease:[.2,.7,.2,1]}} title={`${label}: ${hint}`} aria-label={`${label}: ${value}. ${hint}`}>
     <span className="feedback-value">{value}</span>
     <span className="feedback-hint"><Icon size={13} strokeWidth={2.8} aria-hidden/>{short}</span>
@@ -18,7 +18,7 @@ function Cell({value,direction,label,isBook=false,delay=0}:{value:string|number;
 export function GuessRow({guess,reference,index}:{guess:Guess;reference:BibleReference;index:number}) {
   const result=compareGuess(reference,guess);
   const book=BOOK_BY_ID.get(guess.bookId);
-  return <div className="guess-row"><div className="guess-number" aria-label={`Tentativa ${index+1}`}>{index+1}</div>
+  return <div className="guess-row">
     <Cell label="Livro" isBook value={book?.name??guess.bookId} direction={result.book} delay={0}/>
     <Cell label="Capítulo" value={guess.chapter} direction={result.chapter} delay={.14}/>
     <Cell label="Versículo" value={guess.verse} direction={result.verse} delay={.28}/>
