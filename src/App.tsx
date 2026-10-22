@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { ArrowRight, BookOpenText, CalendarDays, Check, CircleHelp, Copy, Flame, History, Info, LoaderCircle, Moon, Sun, RotateCcw, Send, Share2, Sparkles, Trophy } from 'lucide-react';
+import { ArrowRight, BookOpenText, CalendarDays, Check, CircleHelp, Copy, Flame, History, Info, LoaderCircle, Moon, Sun, RotateCcw, Send, Share2, Trophy } from 'lucide-react';
 import { ArchiveModal } from './components/ArchiveModal';
 import { BookPicker } from './components/BookPicker';
 import { GuessRow } from './components/GuessRow';
@@ -117,7 +117,7 @@ export default function App(){
         </section>
       </div>
       <section className="history-section" aria-label="Suas tentativas">
-        <div className="guess-history" aria-live="polite">{[...guesses].reverse().map((guess,reverseIndex)=><GuessRow key={guess.id} guess={guess} reference={reference} index={guesses.length-reverseIndex-1}/>)}</div>
+        <div className="guess-history" aria-live="polite">{[...guesses].reverse().map(guess=><GuessRow key={guess.id} guess={guess} reference={reference}/>)}</div>
         {guesses.length>0&&!completed&&<button className="secondary-share" type="button" onClick={shareResult}><Share2 size={15}/> {copied?'Copiado!':'Compartilhar progresso'}</button>}
       </section>
     </main>
