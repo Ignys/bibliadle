@@ -15,7 +15,7 @@ function Cell({value,direction,label,isBook=false,delay=0}:{value:string|number;
     <span className="feedback-hint"><Icon size={13} strokeWidth={2.8} aria-hidden/>{short}</span>
   </motion.div>;
 }
-export function GuessRow({guess,reference,index}:{guess:Guess;reference:BibleReference;index:number}) {
+export function GuessRow({guess,reference}:{guess:Guess;reference:BibleReference}) {
   const result=compareGuess(reference,guess);
   const book=BOOK_BY_ID.get(guess.bookId);
   return <div className="guess-row">
